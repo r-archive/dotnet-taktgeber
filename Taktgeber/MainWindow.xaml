@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Taktgeber"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" MinHeight="350" Height="350" Width="525" MinWidth="525" MouseDown="Window_MouseDown">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <Grid Background="OrangeRed">
+            <TextBlock Text="Taktgeber" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+        </Grid>
+        <TextBlock x:Name="zaehler" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="1" FontSize="50"/>
+        <Grid Grid.Row="2">
+            <StackPanel x:Name="balkenstack" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400" Height="20">
+                <Rectangle Fill="Cyan" Height="{Binding Height, ElementName=balkenstack}" Width="80" Margin="0,0,20,0"  />
+                <Rectangle Fill="Cyan" Height="{Binding Height, ElementName=balkenstack}" Width="80" Margin="0,0,20,0" />
+                <Rectangle Fill="Cyan" Height="{Binding Height, ElementName=balkenstack}" Width="80" Margin="0,0,20,0" />
+                <Rectangle Fill="Cyan" Height="{Binding Height, ElementName=balkenstack}" Width="80" />
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
